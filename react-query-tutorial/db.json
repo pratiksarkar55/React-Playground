@@ -1,0 +1,95 @@
+{
+  "superheroes": [
+    {
+      "id": 1,
+      "name": "Batman",
+      "alterEgo": "Bruce Wayne"
+    },
+    {
+      "id": 2,
+      "name": "Superman",
+      "alterEgo": "Clark Kent"
+    },
+    {
+      "id": 3,
+      "name": "Wonder Woman",
+      "alterEgo": "Princess Diana"
+    },
+    {
+      "name": "Flash",
+      "alterEgo": "Barry Allen",
+      "id": 4
+    },
+    {
+      "name": "Arrow",
+      "alterEgo": "Oliver Queen",
+      "id": 5
+    },
+    {
+      "name": "Iron Man",
+      "alterEgo": "Tony Stark",
+      "id": 6
+    },
+    {
+      "name": "Peter Parker",
+      "alterEgo": "Spider man",
+      "id": 7
+    },
+    {
+      "name": "Bruce Banner",
+      "alterEgo": "The hulk",
+      "id": 8
+    }
+  ],
+  "client": {
+    "id": "pratiksarkar.573@gmail.com"
+  },
+  "techStack": [
+    {
+      "id": "pratiksarkar.573@gmail.com",
+      "stack": "react"
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "color": "green"
+    },
+    {
+      "id": 2,
+      "color": "yellow"
+    },
+    {
+      "id": 3,
+      "color": "blue"
+    },
+    {
+      "id": 4,
+      "color": "red"
+    },
+    {
+      "id": 5,
+      "color": "violet"
+    },
+    {
+      "id": 6,
+      "color": "pink"
+    },
+    {
+      "id": 7,
+      "color": "orange"
+    },
+    {
+      "id": 8,
+      "color": "maroon"
+    },
+    {
+      "id": 9,
+      "color": "amber"
+    },
+    {
+      "id": 10,
+      "color": "gray"
+    }
+  ]
+}
