@@ -1,0 +1,28 @@
+React renders components in two phases: Render phase and Commit phase.
+
+For initial render all elememnts are converted to JavaScript objects and put in the DOM.
+
+For re-render only flagged elements are converted to JavaScript objects.
+
+Render phase : The elements are flagged for updates -> 
+Flagged elements are converted to JS objects and stored. -> 
+The objects are compared with previous rendered objects using a diff alogrithm(Object.is). 
+-> The DOM is updated. 
+
+Re-render bailout happens when the state value is same after initial render irrespective of events.
+If state is updated with previous state value from different events one more re-render happens(THIS IS NOT TRUE WHEN COMPARISON IS DONE WITH INITIAL RENDER STATE VALUE).After that for same event same value bailout happens.
+
+THE COMPARSION IS DONE BASED ON REFERENCE.SO MUTATING THE STATE WITH DIFFERENT VALUES IF IT IS AN OBJECT/ARRAY WON'T RE-RENDER THE COMPONENT AS THEY REFER TO THE SAME ARRAY/OBJECT.
+
+When a parent component re-renders React recursively re-renders the child components.
+During initial render if the state value is the same as the initial state value parent is not re-rendered and so is child.
+But after re-rendering if the state value is the same as the initial state value react re-renders one more time for safety BUT ONLY THE PARENT COMPONENT NOT THE CHILD.(To orevent Uneccesary rendering of child)
+When parent re-renders, if no changes are made to child it goes through "Uneccsary Re-Render", in which the child goes through Re-Rendering phase but are not updated to DOM in the commit phase.
+
+------------Important Points----------
+Re-Rendering("Uneccesary rendering of child") happens if there's a change in state  or props in parent and child components are re-rendered recursively(DIRECTLY PLACED INSIDE PARENT).Even if nothing chnages in child.
+If the child component is passed as children props as long as the children component props(NOT PLACED DIRECTLY INSIDE THE PARENT) are not changed(render props),even if the state changes or the prop changes in parent,the child doesn't re-render.
+
+Why not use React.memo for every component?
+// Beacuse shallow comparision takes O(size of object key) time.So we should use React.memo() if it has heavy calculation for re-rendering and props  doesn't change frquently.
+
