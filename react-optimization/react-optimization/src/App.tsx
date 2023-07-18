@@ -23,8 +23,8 @@ function App() {
       {/* <GoodTimer />
       <BadTimer /> */}
       {/* <ConstantTimer /> */}
-      {/* <UseCallbackAndMemoTest /> */}
-      <UseEffectDemoTwo key={index} />
+      <UseCallbackAndMemoTest />
+      {/* <UseEffectDemoTwo key={index} />
       <div>
         <button
           onClick={() => {
@@ -33,7 +33,7 @@ function App() {
         >
           Click to set index
         </button>
-      </div>
+      </div> */}
     </>
   );
 }
