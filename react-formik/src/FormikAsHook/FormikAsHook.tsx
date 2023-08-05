@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
-import { yupSchema } from "./validation";
+import { yupSchema } from "../validation";
 export const FormikAsHook = () => {
   const formik = useFormik({
     initialValues: {

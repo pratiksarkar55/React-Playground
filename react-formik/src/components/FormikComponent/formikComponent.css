@@ -1,0 +1,31 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+}
+
+.labelContainer {
+  align-self: flex-start;
+}
+
+.formContainer {
+  border: 1px solid darkcyan;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px 10px 10px;
+}
+
+input {
+  border-radius: 3px;
+  border: 1px solid darkcyan;
+  margin-bottom: 10px;
+  height: 20px;
+}
+
+.submitButton {
+  margin-top: 15px;
+  background-color: darkcyan;
+  color: white;
+  text-align: center;
+}

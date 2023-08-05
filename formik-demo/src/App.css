@@ -1,0 +1,37 @@
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  border: 1px solid darkcyan;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px 10px 10px;
+}
+
+.labelContainer {
+  align-self: flex-start;
+}
+
+input {
+  border-radius: 3px;
+  border: 1px solid darkcyan;
+  margin-bottom: 10px;
+  height: 20px;
+}
+
+.submitButton {
+  margin-top: 15px;
+  background-color: darkcyan;
+  color: white;
+  text-align: center;
+}
+
+textarea {
+  resize: none;
+}
+
+input[type="radio"] {
+  position: relative;
+  top: 5px;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { Field, Formik, Form } from "formik";
 import { CustomInput } from "./CustomInput";
-import { formikSchema } from "./validation";
+import { formikSchema } from "../validation";
 
 export const FormikAsComponent = () => (
   <div>
