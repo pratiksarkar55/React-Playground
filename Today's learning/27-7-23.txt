@@ -1,5 +1,0 @@
-1. For small applications react-query or react-swr can be used.
-2.For large applications,to manage states you need external tools like redux.
----------------------Learning  formik---------------------------------------
-3."name" attribute in used to send property name when form is submitted.
-4."htmlFfor" in label gives us access like focus to inputs when we click on the label.Both "htmlFor" in label and "id" in input should be same.
