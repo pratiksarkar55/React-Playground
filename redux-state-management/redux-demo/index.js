@@ -79,6 +79,9 @@ const icecreamReducer = (prevState = initialIcecreamState, action) => {
         prevState,
         (draft) => draft.numberofIceCreams + action.quantity
       );
+    // action is called in both the reducers.Only it acts based on switch case
+    case CAKE_ORDERED:
+      return produce(prevState, (draft) => draft.numberofIceCreams--);
     default:
       return prevState;
   }
