@@ -43,15 +43,18 @@ const UseState = () => {
   console.log("Redendering UseState Component", count);
   return (
     <div>
+      <div> Count is {count}</div>
       <button
         onClick={() => {
+          console.log("Clicking increase by 1");
           setCount(count + 1);
         }}
       >
-        Count is {count}
+        Incrase by 1
       </button>
       <button
         onClick={() => {
+          console.log("Clicking set to 0");
           setCount(0);
         }}
       >
@@ -59,6 +62,7 @@ const UseState = () => {
       </button>
       <button
         onClick={() => {
+          console.log("Clicking set to 5");
           setCount(5);
         }}
       >

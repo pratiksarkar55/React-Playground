@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import Parent from "./Parent";
 import Child from "./Child";
-
+let child = null;
 const GrandParent = ({ children }) => {
+  console.log(child === children);
+  child = children;
   const [count, setCount] = useState(0);
+  const childComp = useCallback(() => {
+    return children;
+  }, []);
   console.log("Redendering Grand Parent Component");
   return (
     <div>
@@ -14,7 +19,7 @@ const GrandParent = ({ children }) => {
       >
         Count in Grand parent is {count}
       </button>
-      <Parent count={count}>{children}</Parent>
+      <Parent counter={count}>{childComp()}</Parent>
     </div>
   );
 };
