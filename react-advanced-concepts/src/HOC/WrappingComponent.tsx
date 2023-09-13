@@ -1,8 +1,11 @@
 import React from "react";
 
-const WrappingComponent = (WrappedComponent) => {
-  //newComponent is the main function that's get called on App
-  const newComponent = (props) => {
+const wrappingComponent = (
+  WrappedComponent: (props: { name: string; age?: number }) => JSX.Element,
+  val1: string
+) => {
+  console.log("Inside wrapping component", val1);
+  const newComponent = (props: string) => {
     console.log("Props inside wrapper", props);
     return <WrappedComponent name="Pratik" />;
   };
@@ -10,4 +13,4 @@ const WrappingComponent = (WrappedComponent) => {
   return newComponent;
 };
 
-export default WrappingComponent;
+export default wrappingComponent;

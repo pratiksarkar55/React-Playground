@@ -8,9 +8,10 @@ const TransitionDemo = () => {
     setText(e.target.value);
 
     startTransition(() => {
+      // gets lower priority so seState happens later
       setItems((prev) => {
         prev = [];
-        for (let i = 0; i < 50000; i++) {
+        for (let i = 0; i < 10000; i++) {
           prev.push(i);
         }
         return prev;
