@@ -13,7 +13,7 @@ const NameList = () => {
     <div>
       {loading && <h2>Loading...</h2>}
       {!loading && data.length > 0 && (
-        <ul>
+        <ul role="ui-list">
           {data.map((obj, index) => (
             <li key={index}>{obj}</li>
           ))}

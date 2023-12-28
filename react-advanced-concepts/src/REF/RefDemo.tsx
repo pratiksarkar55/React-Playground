@@ -15,18 +15,18 @@ interface customRefI {
   value: string;
   focusChild?: () => void;
 }
-let prev: React.RefObject<HTMLInputElement> | null = null;
+//let prev: React.RefObject<HTMLInputElement> | null = null;
 const RefDemo = () => {
   const [value, setValue] = useState<string>("");
   // const refValue = React.createRef<HTMLInputElement>();
   const refValue = useRef<HTMLInputElement>(null);
-  console.log(prev === refValue);
-  prev = refValue;
+  //console.log(prev === refValue);
+ // prev = refValue;
   useEffect(() => {
-    console.log("refValue1", refValue);
+   // console.log("refValue1", refValue);
     if (refValue && refValue.current) {
-      refValue.current.focus();
-      console.log("refValue", refValue.current.value);
+      refValue.current.focusChild();
+      console.log("refValue", refValue.current);
     }
   }, [value]);
 
@@ -35,7 +35,7 @@ const RefDemo = () => {
       <Child
         value={value}
         onChange={setValue}
-        // forwardedRef={refValue}
+      //  forwardedRef={refValue}
         ref={refValue}
       />
       {/* {<ChildClass value={value} onChange={setValue} forwardedRef={refValue} />} */}
@@ -46,21 +46,21 @@ const RefDemo = () => {
 interface propType {
   value: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
-  ref: React.RefObject<HTMLInputElement>;
+ // forwardedRef: React.RefObject<HTMLInputElement>;
 }
 
-// const Child = React.forwardRef<HTMLInputElement, propType>((props, ref) => {
-const Child = (props: propType) => {
-  // const inputRef = useRef<HTMLInputElement>(null);
-  // useImperativeHandle(ref, () => {
-  //   return {
-  //     ...inputRef.current,
-  //     value: "value from imperative",
-  //     focusChild: () => inputRef.current?.focus(),
-  //     // focusChild:()=>inputRef?.current?.focus()
-  //   } as HTMLInputElement;
-  // });
-
+ const Child = React.forwardRef<HTMLInputElement, propType>((props, refObj) => {
+  //const Child = (props: propType) => {
+   const inputRef = useRef<HTMLInputElement>(null);
+  useImperativeHandle(refObj, () => {
+    return {
+       ...inputRef.current,
+       value: "value from imperative",
+      focusChild: () => inputRef.current?.focus(),
+      // focusChild:()=>inputRef?.current?.focus()
+    } as HTMLInputElement;
+  });
+ //console.log('refObj',refObj);
   return (
     <>
       <input
@@ -68,12 +68,12 @@ const Child = (props: propType) => {
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
           props.onChange(e.target.value);
         }}
-        ref={props.ref}
+        ref={inputRef}
       />
     </>
   );
-};
-//);
+}
+);
 
 // interface propTypeClassBased {
 //   value: string;

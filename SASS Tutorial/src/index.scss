@@ -1,0 +1,124 @@
+@use 'sass:math';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+// This import order does matter.Can't use 'base' variables in variables file. 
+@import "./variables";
+@import "./base";
+
+$primary: #eeeeee;
+
+/* reset styles */
+* {
+  color: inherit;
+  margin: 0;
+}
+
+body {
+  font-family: Poppins;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dotted #efefef;
+}
+
+img {
+  max-width: 100%;
+}
+h1{
+    color: $secondary;
+}
+
+.card{
+  height: 100px;
+  width: 200px;
+  box-shadow: 1px 2px 3px lightgray;
+  :hover{
+    box-shadow: 3px 5px 8px lightgray;
+  }
+  .card-body{
+    $number1:200;
+    $number2:2;
+    $result:math.div($number1,$number2);
+    height:#{$result}px;
+    width: 200px;
+  }
+}
+
+//map
+$colors:(
+  "primary":$primary,
+  "secondary":$secondary
+);
+
+//loop
+@each $key,$val in $colors {
+  .text-#{$key}{
+    color:$val
+  }
+@for $i from 1 through 9{
+  @if($i ==1){
+    .text-#{$key}-dark-#{$i}{
+      //can use selector class like this in parent elements using &
+      &:hover{
+        color:mix( #efefef,  $val, $i * 10)
+      }
+      color:mix( #000000,  $val, $i * 10)
+    }
+  }
+
+}
+
+}
+
+
+.extendClass{
+  display: flex;
+}
+
+// mixin - function mixin
+@mixin testMixin($bg-color: #e2e2e2){
+  border: 1px solid $bg-color;
+  @extend .extendClass;
+}
+
+// object mixin
+@mixin objMixin {
+  // for dynamic properties
+  @content;
+}
+
+.mixin1{
+  color: #000000;
+  @include testMixin();
+
+  
+}
+
+.mixin2{
+  color: #efefef;
+  @include testMixin($primary);
+  @include objMixin{
+    color: $primary
+  };
+}
+
+
+
+// function
+@function testFunction(){
+  @return "test"
+}
+
+
+@debug math.div(100,2);
+@debug map-get($map: $colors, $key: "primary");
+@debug testFunction();

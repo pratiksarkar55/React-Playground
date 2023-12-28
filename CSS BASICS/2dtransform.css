@@ -1,0 +1,14 @@
+/* transform will work only on inline-block,block elements and not on inline-elements */
+button{
+    background-color: coral;
+    color: white;
+    width: 200px;
+    height: 100px;
+    transform-origin: 0% 0%;
+}
+
+button:hover{
+    /* scale,skew,rotate,translate */
+    transform:  rotate(30deg);
+    /* transform: perspective(200px) rotate3d(100,0,0,30deg); */
+}

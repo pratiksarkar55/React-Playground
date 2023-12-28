@@ -1,4 +1,5 @@
 import React, {
+  ChangeEvent,
   useDeferredValue,
   useEffect,
   useLayoutEffect,
@@ -13,22 +14,23 @@ const DeferedValueDemo = () => {
 
   const deferredSearchQuery = useDeferredValue(searchQuery);
   useEffect(() => {
+    // mocking api call and using the DeferredValue
     setTimeout(() => {
-      let obj = { id: "2", title: deferredSearchQuery };
+      const obj = { id: "2", title: deferredSearchQuery };
       if (deferredSearchQuery !== "") setSearchResults([...searchResults, obj]);
     }, 3000);
   }, [deferredSearchQuery]);
 
-  const handleSearchInputChange = (event) => {
+  const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
-  console.log("deferredSearchQuery", deferredSearchQuery);
-  console.log("searchQuery", searchQuery);
+  // console.log("deferredSearchQuery", deferredSearchQuery);
+  // console.log("searchQuery", searchQuery);
   return (
     <div>
       <input
         type="text"
-        value={deferredSearchQuery}
+        value={searchQuery}
         onChange={handleSearchInputChange}
       />
       <ul>

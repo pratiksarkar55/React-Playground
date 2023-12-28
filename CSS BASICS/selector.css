@@ -1,0 +1,28 @@
+/* Element selector= h1{}
+   Id Selector=  #h1-id{}
+    Class Selector=  .h1-class{}
+    Pseudo Class= div:nth-child()
+    Pseudo Element= div::before
+    Attribute selector = a[href="www.example.com"] // whichever a tag has href as www.example.com
+    Universal selector = *{} // in all elements
+    Child at any stage= .parent child{}
+    direct child= .parent  > child(){}
+    right after sibling =  .sibling+ siblings{}
+    any sibling = .sibling~ siblings{}
+    combining any selector = .parent, h1 {}
+*/
+
+/* priority is id>class>element */
+div{
+    color: red;
+}
+#div-id{
+    color: blue;
+}
+.div-class{
+    color: green;
+}
+/* For same selectors the one below will override the one at top  */
+#div-id{
+    color: wheat;
+}

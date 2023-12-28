@@ -1,0 +1,32 @@
+ul{
+    background-color: green;
+    border: 5px solid red;
+    overflow: auto;
+}
+
+li{
+    color: white;
+    padding: 10px;
+    list-style-type: none;
+}
+
+#one{
+    float: left;
+}
+#two{
+ float: left;
+}
+#three{
+    float: right;
+}
+#four{
+    float: right;
+}
+
+img{
+    float: right;
+    width: 100px;
+    height: 100px;
+}
+
+/* clear - if a left/righted floated element exists on the element's left/right then the element will move down below. */

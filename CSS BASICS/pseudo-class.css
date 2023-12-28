@@ -1,0 +1,20 @@
+/* Pseudo class will get priority */
+li:first-child{
+  color: brown;
+}
+/* Pseudo class can get overriden by pseudo class */
+li:nth-child(odd){
+color: blue;
+}
+/* Pseudo class can get overriden by pseudo class */
+li:nth-last-child(1){
+    color: orange;
+}
+
+li{
+    color: pink;
+}
+
+input:focus{
+    background-color: aquamarine;
+}

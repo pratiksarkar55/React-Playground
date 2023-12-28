@@ -1,0 +1,21 @@
+html, body{
+    height: 100%;
+    margin:0
+}
+
+.grid-container{
+    background-color: indianred;
+    border: 1px solid red;
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.grid-item{
+  padding: 10px;
+  background-color: wheat;
+  text-align: center;
+  border: 1px solid black;
+}

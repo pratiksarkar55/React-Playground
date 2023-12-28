@@ -1,0 +1,45 @@
+/* :root{ this for global variable
+    --pink-background:pink;
+} */
+@keyframes background-change {
+    0% {
+        background-color: chartreuse;
+    }
+    25%{
+        --pink-background:pink;
+        background-color:var(--pink-background);
+    }
+    50%{
+        background-color: yellow;
+    }
+    75%{
+         background-color: orange
+    }
+    100%{
+        background-color: aqua;
+        width: 200px;
+    }
+}
+
+.one{
+    height: 100px;
+    width: 150px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    animation-name: background-change;
+    animation-duration: 2000ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.two{
+    height: 100px;
+    width: 150px;
+    margin-top: 60px;
+    border: 1px solid black;
+    animation-name: background-change;
+    animation-duration: 2000ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

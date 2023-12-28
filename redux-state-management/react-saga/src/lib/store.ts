@@ -25,5 +25,17 @@ const reducer = (
   }
 };
 const sagaMoiddleware = createSagaMiddleware();
-export const store = createStore(reducer, applyMiddleware(sagaMoiddleware));
+const customMiddleWare =
+  (store: any) =>
+  (next: any) =>
+  (action: any): any => {
+    // console.log("store", store);
+    // console.log("next", next);
+    // console.log("action", action);
+    return next(action); // passes the action to the next middleware in line or, if there are no more middlewares, to the reducer.
+  };
+export const store = createStore(
+  reducer,
+  applyMiddleware(sagaMoiddleware, customMiddleWare)
+);
 sagaMoiddleware.run(rootSaga);

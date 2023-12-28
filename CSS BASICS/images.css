@@ -1,0 +1,23 @@
+    /* filter: contrast(30%); */
+/* img{
+
+    opacity: 1;
+} */
+
+/* img:hover{
+    opacity: 0.1;
+} */
+
+/* WHY DON'T WE SPRITE ALL BIG IMAGES? */
+
+/* In fill aspect ratio changes but height width remain same,
+in contain img maintains ratio but becomes samller than the height and width
+In cover aspect ratio,width,height remains the same but psoition change.
+*/
+img{
+ height: 800px;
+ width: 1300px;
+ border: 1px solid red;
+ object-fit: cover;
+ object-position: top left;
+}

@@ -1,0 +1,14 @@
+button{
+    width: 300px;
+    height: 100px;
+    /* transform-origin: 0%,0%;
+    transition-property: width ;
+    transition-duration: 1000ms;
+    transition-timing-function: ease; */
+    transition: width 2000ms ease-in;
+}
+
+button:hover{
+    width: 500px;
+    /* transform: translate(50%,50%); */
+}

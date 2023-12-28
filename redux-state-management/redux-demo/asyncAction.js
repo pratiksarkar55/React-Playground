@@ -54,6 +54,7 @@ const reducer = (prevState = iniitalState, action) => {
 };
 let unsubscribe;
 //async action creators due to redux-thunk middleware
+//returns a function with dispatch as paramter inisde which we can handle the async stuff.
 function asyncFunction() {
   return function (dispatch) {
     axios

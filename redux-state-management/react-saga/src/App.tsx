@@ -3,6 +3,7 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import { store } from "./lib/store";
 import { useEffect } from "react";
 import { Todo } from "./lib/type";
+import { getActiveUsers } from "./selectors/toDoSelector";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
 }
 function TodoApp() {
   const dispatch = useDispatch();
-  const todos: Todo[] = useSelector((state) => state) as Todo[];
+  const todos: Todo[] = useSelector(getActiveUsers);
   useEffect(() => {
     dispatch({ type: "TODOS_FETCH_REQUESTED" });
   }, []);

@@ -5,7 +5,12 @@ const TransitionDemo = () => {
   const [items, setItems] = useState<number[]>([]);
   const [isPending, startTransition] = useTransition();
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
+    const value = e.target.value;
+    setTimeout(() => {
+      console.log(e.target.value);
+      setText(value);
+    }, 5000);
+    //}
 
     startTransition(() => {
       // gets lower priority so seState happens later

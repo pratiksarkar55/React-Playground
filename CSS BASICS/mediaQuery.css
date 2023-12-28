@@ -1,0 +1,23 @@
+.one{
+  width: 70%;
+  height: 200px;
+  background-color: brown;
+  float: left;
+}
+
+.two{
+width: 30%;
+height: 200px;
+background-color: chartreuse;
+float: left;
+}
+
+@media screen and (max-width:375px) {
+    .one{
+        width: 100%;
+      }
+      
+      .two{
+      width: 100%;
+      }
+}

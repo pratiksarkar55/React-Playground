@@ -1,0 +1,16 @@
+p::first-letter{
+    text-transform: capitalize;
+    color: cyan;
+}
+
+h1::before{
+    content: "again";
+}
+
+h1::after{
+    content: "again";
+}
+
+::selection{
+    color: brown;
+}
