@@ -1,0 +1,15 @@
+/* inline doesn't take height and width
+   block takes height and width and full width.
+*/
+body{
+    margin: 0;
+    font-size: 0;
+}
+.one, .two{
+width:50%;
+height:100px;
+border:1px solid red;
+display: inline-block;
+font-size: 16px;
+box-sizing: border-box;
+}

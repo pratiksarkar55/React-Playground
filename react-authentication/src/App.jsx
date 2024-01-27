@@ -5,6 +5,7 @@ import {
   useMsal,
   MsalProvider,
 } from "@azure/msal-react";
+import { Component, useState } from "react";
 
 const WrappedView = () => {
   const { instance } = useMsal();
@@ -37,9 +38,9 @@ const WrappedView = () => {
 
 function App({ instance }) {
   return (
-    <MsalProvider instance={instance}>
+    <>
       <WrappedView />
-    </MsalProvider>
+    </>
   );
 }
 

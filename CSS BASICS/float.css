@@ -1,32 +1,22 @@
-ul{
-    background-color: green;
-    border: 5px solid red;
-    overflow: auto;
+.one{
+    width: 70%;
+    height:100px;
+    background-color: brown;
+    display: inline-block;
+    /* vertical-align works only for inline-block element */
+    vertical-align: middle;
+    /* In float display is treated as block */
+    /* float: left; */
 }
-
-li{
-    color: white;
-    padding: 10px;
-    list-style-type: none;
-}
-
-#one{
-    float: left;
-}
-#two{
- float: left;
-}
-#three{
-    float: right;
-}
-#four{
-    float: right;
-}
-
-img{
-    float: right;
+.two{
     width: 100px;
-    height: 100px;
+    height:100px;
+    background-color: chartreuse;
+    /* float: left; */
+    display: inline-block;
 }
 
-/* clear - if a left/righted floated element exists on the element's left/right then the element will move down below. */
+
+/* clear not allow floated element on the left/right or both direction.Doesn't mess
+with ordering
+*/

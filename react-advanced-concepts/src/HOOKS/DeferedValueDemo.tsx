@@ -8,18 +8,17 @@ import React, {
 
 const DeferedValueDemo = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([
-    { id: "1", title: "Pratik" },
-  ]);
 
+  // makes an interuptted background render.So if setSearchQuery is called in between
+  // the background render gets interputed and the re-render doesn't happen.
+  //Once setSearchQuery is done the background render works.
   const deferredSearchQuery = useDeferredValue(searchQuery);
+
   useEffect(() => {
-    // mocking api call and using the DeferredValue
-    setTimeout(() => {
-      const obj = { id: "2", title: deferredSearchQuery };
-      if (deferredSearchQuery !== "") setSearchResults([...searchResults, obj]);
-    }, 3000);
-  }, [deferredSearchQuery]);
+    if (searchQuery === deferredSearchQuery && deferredSearchQuery !== "") {
+      console.log("netwrok call");
+    }
+  }, [deferredSearchQuery, searchQuery]);
 
   const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
@@ -34,9 +33,11 @@ const DeferedValueDemo = () => {
         onChange={handleSearchInputChange}
       />
       <ul>
-        {searchResults.map((result, index) => (
-          <li key={index}>{result.title}</li>
-        ))}
+        {Array.from({ length: 10000 }, (_, index) => index).map(
+          (obj, index) => {
+            return <li key={index}>Text:{deferredSearchQuery}</li>;
+          }
+        )}
       </ul>
     </div>
   );

@@ -1,0 +1,141 @@
+// @import './mixins.scss';
+
+// *{
+//     color: darkred;
+// }
+
+// body{
+//     margin: 0;
+//     font-size: 0;
+//     padding: 0;
+//     border: none;
+//     box-sizing: border-box;
+
+// }
+// html{
+//     margin: 0;
+//     padding: 0;
+//     border: none;
+//     box-sizing: border-box;
+// }
+// :root{
+//     box-sizing: border-box;  
+// }
+
+// .one, .two{
+// @include boxStyle(100);
+// }
+
+// @media screen and (max-width:300px){
+//     .one, .two{
+//         width: 100%;
+//         }
+// }
+
+// //indirect sibling
+// .threeChild ~.threeChild2{
+//     font-size: 30px;
+// }
+
+.extendContainer{
+    font-size: 30px;
+}
+
+.container{
+    border:1px solid blue;
+    height: 100vh;
+    margin: 20px;
+    // .three{
+    //     @include heightWidth;
+    //     .threeChild{
+    //         border:1px solid black;
+    //     }
+        
+    //     .threeChild1{
+    //         border:1px solid pink;
+    //     }
+    //     .threeChild2{
+    //         border:1px solid orange;
+    //     }
+    // }
+    // .four{
+    //     @include heightWidth; 
+    // }
+
+
+   @mixin testMixin{
+    @content
+   }
+
+    .border-box-test{
+        @extend .extendContainer;
+        @include testMixin{
+            border: 10px solid black;
+        }
+        transition: width 2000ms ease-in-out;
+        &:hover{
+            width: 300px;
+        }
+        width: 100px;
+        height: 200px;
+        background-color: blueviolet;
+        padding: 5px;
+        margin: 5px;
+        box-sizing: border-box;
+        display: inline-block;
+        position: relative;
+    }
+    .border-box-test2{
+        width: 100px;
+        height: 200px;
+        background-color: blueviolet;
+        padding: 5px;
+        margin: 5px;
+        box-sizing: border-box;
+        display: inline-block;
+        position: absolute;
+    }
+}
+
+// // any child
+// .container .threeChild2{
+//   color: red;
+//   font-size: 20px;
+// }
+
+// // direct child
+// .container > .four{
+//     color: pink;
+//     font-size: 20px;
+// }
+
+// // direct sibling
+// .threeChild +.threeChild1{
+//     border: 4px solid green;
+// }
+
+// //pseduo class
+// .three div:nth-child(odd){
+//     color: chartreuse;
+// }
+// .three div:nth-child(odd):hover{
+//     color: red;
+// }
+
+// //pseduo element
+// .container ::before{
+//     content: 'before';
+// }
+// .container ::after{
+//     content: 'after';
+// }
+
+
+// .test-container{
+//     border: 1px solid green;
+
+// }
+
+
+
+

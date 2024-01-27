@@ -5,13 +5,12 @@ const TransitionDemo = () => {
   const [items, setItems] = useState<number[]>([]);
   const [isPending, startTransition] = useTransition();
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    // const value = e.target.value;
+    // useRef for async setStae using events.
     setTimeout(() => {
       console.log(e.target.value);
-      setText(value);
-    }, 5000);
-    //}
-
+      setText(e.target.value);
+    });
     startTransition(() => {
       // gets lower priority so seState happens later
       setItems((prev) => {
@@ -27,7 +26,7 @@ const TransitionDemo = () => {
   console.log("isPending!!", isPending);
   return (
     <div>
-      <input type="text" value={text} onChange={handleChange} />
+      <input type="text" value={text} onInput={handleChange} />
       {items.map((item, i) => {
         return <div key={i}>{item}</div>;
       })}

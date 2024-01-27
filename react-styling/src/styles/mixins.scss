@@ -1,0 +1,15 @@
+@mixin boxStyle($height) {
+    width:50%;
+    height:#{$height}px;
+    display: inline-block;
+    font-size: 16px;
+    box-sizing: border-box;
+    border:1px solid red;
+}
+
+@mixin heightWidth {
+    width:100px;
+    height:100px;
+    border:1px solid red;
+    font-size: 16px;
+}
