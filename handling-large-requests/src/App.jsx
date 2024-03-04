@@ -14,7 +14,7 @@ function App() {
   async function retry(operation, retries = 5, delay = 5000) {
     for (let i = 0; i < retries; i++) {
       try {
-        const result = await handle1000Requests();
+        const result = await operation();
         return result; // Return the result if operation succeeds
       } catch (error) {
         console.error(`Attempt ${i + 1} failed:`, error);
@@ -53,7 +53,6 @@ function App() {
             await Promise.all(executing);
             executing.length = 0;
           }
-          console.log(counter);
           counter++;
         }
 
@@ -67,7 +66,7 @@ function App() {
       runChunk();
     }
 
-    runLoopChunks(10000, 10, 0);
+    runLoopChunks(10000, 6, 0);
   };
 
   return (
